@@ -7,14 +7,20 @@
   <body>
     <div id="app-root"></div>
 
-    <!-- 你所用到的轮子都在这里“声明”一下 -->
+    <!--
+      你所用到的 esm 轮子都在这里“声明”一下
+
+      有些库（如 react）只有 umd 版本，没有 esm，这种情况下，
+      如果使用 umd 版本，那么对 react 有依赖的库（使用了 import 'react' 的库）就跑不起来了，
+      所以只能用点小技巧（umd -> esm）
+    -->
     <script type="importmap">
       {
         "imports": {
           "react": "https://unpkg.com/@xueershixi/react@18.2.0/react.development.js",
           "react-dom": "https://unpkg.com/@xueershixi/react@18.2.0/react-dom.development.js",
+          "marked": "https://cdn.jsdelivr.net/npm/marked@5.0.2/lib/marked.esm.js",
           "router-mini/": "https://unpkg.com/router-mini@0.0.1/",
-
           "@ppzp/utils.rc": "https://unpkg.com/@ppzp/utils.rc"
         }
       }
