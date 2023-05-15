@@ -1,4 +1,4 @@
-import get from './_index.js'
+import get from './index.js'
 
 export function get_max() { // 最后一期的期号
   return Promise.resolve(254)
