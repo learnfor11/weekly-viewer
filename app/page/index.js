@@ -1,11 +1,11 @@
 import { $ } from '@ppzp/utils.rc'
-import { Router } from 'router-mini/react.js'
+import { Router, RouterConfig } from 'router-mini/react.js'
 
 import HomePage from './home/index.js'
 
-const base_path = '/weekly_viewer'
+RouterConfig.base_path = '/weekly_viewer'
 const routes = [
-  { path: base_path + '/', element: $(HomePage) },
+  { path: '/', element: $(HomePage) },
 ]
 
 export default

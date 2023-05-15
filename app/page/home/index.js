@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { $ } from '@ppzp/utils.rc'
 import { useQuery } from 'router-mini/react.js'
 
