@@ -14,9 +14,8 @@ export default function Viewer({ num }) {
   return raw_res.match({
     before_loaded: () => $.div('loading...'),
     error: err => $.div(err),
-    loaded: data =>
-      $.div({
-        dangerouslySetInnerHTML: { __html: marked.parse(data) }
-      })
+    loaded: data => $.div({
+      dangerouslySetInnerHTML: { __html: marked.parse(data) }
+    })
   })
 }
