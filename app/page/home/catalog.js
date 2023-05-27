@@ -9,9 +9,11 @@ function Catalog({ max, num }) {
       Array.from({ length: max })
         .map(function(_, i) {
           const num = max - i
-          return O.div({ key: num },
-            O(Link)({ to: '/?num=' + num },
-              `第 ${num.toString().padStart(pad_size, '0')} 期`
+          return O.ul({ key: num },
+            O.li(
+              O(Link)({ to: '/?num=' + num },
+                `第 ${num.toString().padStart(pad_size, '0')} 期`
+              )
             )
           )
         })

@@ -6,10 +6,11 @@ import Loading from '../../cmp/loading/index.js'
 import { get_by_num } from '../../api/raw.js'
 
 export default function Viewer({ num }) {
-  // ppz's tip: 在外面处理 num 格式
+  console.debug('render Viewer')
 
   const raw_res = useAsyncGet({
-    getter: () => get_by_num(num)
+    getter: () => get_by_num(num),
+    watch: [num]
   })
   
   return raw_res.match({
@@ -22,8 +23,9 @@ export default function Viewer({ num }) {
       return O.article(err)
     },
     loaded(data) {
+      console.debug('render Viewer loaded') // 好多次！！
       return O.article({
-        dangerouslySetInnerHTML: { __html: marked.parse(data) }
+        dangerouslySetInnerHTML: { __html: marked.parse(data, { mangle: false }) }
       })
     }
   })
