@@ -17,7 +17,7 @@
   background: currentColor;
   opacity: .2;
   margin-right: 1rem;
-  animation: spin .1s linear infinite;
+  animation: spin .5s linear infinite;
 }
 .ppz-cmp-loading .title {
   opacity: .6;

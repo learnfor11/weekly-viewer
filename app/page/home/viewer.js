@@ -13,10 +13,18 @@ export default function Viewer({ num }) {
   })
   
   return raw_res.match({
-    before_loaded: () => O(Loading)('加载文章...'),
-    error: err => O.article(err),
-    loaded: data => O.article({
-      dangerouslySetInnerHTML: { __html: marked.parse(data) }
-    })
+    before_loaded() {
+      return O.article(
+        O(Loading)('加载文章...')
+      )
+    },
+    error(err) {
+      return O.article(err)
+    },
+    loaded(data) {
+      return O.article({
+        dangerouslySetInnerHTML: { __html: marked.parse(data) }
+      })
+    }
   })
 }

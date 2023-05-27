@@ -4,22 +4,14 @@
 }
 
 .ppz-page-home nav {
-  width: 388px;
+  width: 288px;
+  position: relative;
+  background-color: rgba(var(--color-fore-base), .03);
+}
+
+.ppz-page-home .nav_wrapper {
   height: 100%;
   overflow-y: auto;
-  position: relative;
-}
-.ppz-page-home nav::after {
-  content: '';
-  display: block;
-  position: absolute;
-  z-index: -1;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background: currentColor;
-  opacity: .05;
 }
 
 .ppz-page-home article {

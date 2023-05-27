@@ -11,7 +11,7 @@ export default
 function HomePage() {
   const { ready, num, max } = useNumAndMax()
   return O(Layout)(
-    O.main({ className: 'ppz-page-home' },
+    O.div({ className: 'ppz-page-home' },
       ready
       ? O._(
           O(Catalog)({ max, num }),

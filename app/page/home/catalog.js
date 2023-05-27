@@ -5,14 +5,16 @@ export default
 function Catalog({ max, num }) {
   const pad_size = max.toString().length
   return O.nav(
-    Array.from({ length: max })
-      .map(function(_, i) {
-        const num = max - i
-        return O.div({ key: num },
-          O(Link)({ to: '/?num=' + num },
-            `第 ${num.toString().padStart(pad_size, '0')} 期`
+    O.div({ className: 'nav_wrapper' },
+      Array.from({ length: max })
+        .map(function(_, i) {
+          const num = max - i
+          return O.div({ key: num },
+            O(Link)({ to: '/?num=' + num },
+              `第 ${num.toString().padStart(pad_size, '0')} 期`
+            )
           )
-        )
-      })
+        })
+    )
   )
 }

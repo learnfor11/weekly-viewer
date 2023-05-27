@@ -4,7 +4,21 @@
 
 @import url('./page/home.css');
 
+html {
+  color: var(--color-fore);
+  background-color: var(--color-back);
+}
 html, body {
   padding: 0;
   margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  /* 轨道 */
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(var(--color-fore-base), .2);
 }
