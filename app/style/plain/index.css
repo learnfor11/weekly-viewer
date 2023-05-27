@@ -1,0 +1,10 @@
+@import url('./variables.css');
+@import url('./animate.css');
+@import url('./cmp/loading.css');
+
+@import url('./page/home.css');
+
+html, body {
+  padding: 0;
+  margin: 0;
+}

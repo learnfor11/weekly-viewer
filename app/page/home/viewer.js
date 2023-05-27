@@ -2,6 +2,7 @@ import { O } from '@ppzp/utils.rc'
 import useAsyncGet from '@ppzp/utils.rc/use_async_get.js'
 import { marked } from 'marked'
 
+import Loading from '../../cmp/loading/index.js'
 import { get_by_num } from '../../api/raw.js'
 
 export default function Viewer({ num }) {
@@ -12,9 +13,9 @@ export default function Viewer({ num }) {
   })
   
   return raw_res.match({
-    before_loaded: () => O.div('loading...'),
-    error: err => O.div(err),
-    loaded: data => O.div({
+    before_loaded: () => O(Loading)('加载文章...'),
+    error: err => O.article(err),
+    loaded: data => O.article({
       dangerouslySetInnerHTML: { __html: marked.parse(data) }
     })
   })
