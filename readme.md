@@ -1,4 +1,5 @@
 # 科技爱好者周刊阅读器
+[看看现在做得怎么样了](https://learnfor11.github.io/weekly_viewer/)
 
 ## TODO
 ##### 一期

@@ -4,6 +4,10 @@
 
 @import url('./page/home.css');
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   color: var(--color-fore);
   background-color: var(--color-back);
