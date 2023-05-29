@@ -29,6 +29,7 @@
   padding: 1em 1.5em;
   text-decoration: none;
   color: rgba(var(--color-fore-base), .58);
+  transition: all .08s;
 }
 .ppz-page-home nav li a:hover {
   color: rgba(var(--color-fore-base), 1);

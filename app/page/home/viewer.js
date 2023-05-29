@@ -23,6 +23,7 @@ export default function Viewer({ num }) {
       return O.article(err)
     },
     loaded(data) {
+      // const lexer = marked.lexer(data)
       console.debug('render Viewer loaded') // 好多次！！
       return O.article({
         dangerouslySetInnerHTML: { __html: marked.parse(data, { mangle: false }) }
