@@ -1,6 +1,7 @@
 @import url('./variables.css');
 @import url('./animate.css');
 @import url('./cmp/loading.css');
+@import url('./cmp/collapse_switch.css');
 
 @import url('./page/home.css');
 

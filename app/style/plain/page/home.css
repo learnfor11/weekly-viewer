@@ -9,6 +9,16 @@
   background-color: rgba(var(--color-fore-base), .03);
 }
 
+.ppz-page-home nav .collapse_nav {
+  color: rgba(var(--color-fore-base), .6);
+}
+.ppz-page-home nav .collapse_nav:hover {
+  color: rgba(var(--color-fore-base), 1);
+}
+.ppz-page-home nav .collapse_nav:has(:checked) {
+  --width: 1px;
+}
+
 .ppz-page-home .nav_wrapper {
   height: 100%;
   overflow-y: auto;

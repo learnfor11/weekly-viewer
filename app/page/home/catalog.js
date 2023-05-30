@@ -5,7 +5,9 @@ import { useCollapseSwitch } from '../../cmp/collapse_switch/index.js'
 export default
 function Catalog({ max, num }) {
   const pad_size = max.toString().length
-  const collapse_switch = useCollapseSwitch()
+  const collapse_switch = useCollapseSwitch({
+    className: 'collapse_nav'
+  })
   return O.nav(
     collapse_switch.el,
     O.div({ className: 'nav_wrapper' },

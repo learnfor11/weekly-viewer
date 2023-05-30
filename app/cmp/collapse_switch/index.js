@@ -1,9 +1,10 @@
 import { useState } from 'react'
-import { O } from '@ppzp/utils.rc'
+import { O, cns } from '@ppzp/utils.rc'
 
 export
-function CollapseSwitch({ collapse, set_collapse }) {
-  return O.div({ className: 'collapse_switch' },
+function CollapseSwitch({ collapse, set_collapse, className }) {
+  return O.label({ className: cns('ppz_cmp_collapse_switch', className) },
+    O.div(),
     O.input({
       type: 'checkbox',
       checked: collapse,
@@ -15,12 +16,16 @@ function CollapseSwitch({ collapse, set_collapse }) {
 }
 
 export
-function useCollapseSwitch(default_collapse = false) {
+function useCollapseSwitch({
+  default_collapse = false,
+  className
+}) {
   const [collapse, set_collapse] = useState(default_collapse)
   return {
     collapse,
     set_collapse,
     el: O(CollapseSwitch)({
+      className,
       collapse,
       set_collapse
     })
