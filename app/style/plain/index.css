@@ -3,7 +3,7 @@
 @import url('./cmp/loading.css');
 @import url('./cmp/collapse_switch.css');
 
-@import url('./page/home.css');
+@import url('./page/home/index.css');
 
 * {
   box-sizing: border-box;

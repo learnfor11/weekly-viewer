@@ -7,7 +7,7 @@ function CollapseSwitch({ collapse, set_collapse, className }) {
     O.div(),
     O.input({
       type: 'checkbox',
-      checked: collapse,
+      checked: !collapse,
       onChange() {
         set_collapse(!collapse)
       }

@@ -1,4 +1,4 @@
-import { O } from '@ppzp/utils.rc'
+import { O, cns } from '@ppzp/utils.rc'
 import { Link } from 'router-mini/react.js'
 import { useCollapseSwitch } from '../../cmp/collapse_switch/index.js'
 
@@ -8,7 +8,7 @@ function Catalog({ max, num }) {
   const collapse_switch = useCollapseSwitch({
     className: 'collapse_nav'
   })
-  return O.nav(
+  return O.nav({ className: cns({ collapse: collapse_switch.collapse }) },
     O.div({ className: 'left_top' },
       O.h1('科技爱好者周刊'),
       collapse_switch.el,

@@ -1,20 +1,26 @@
-.ppz-page-home {
-  height: 100vh;
-  display: flex;
-}
-
 .ppz-page-home nav {
   width: 288px;
+  transition: width .3s;
   position: relative;
   background-color: rgba(var(--color-fore-base), .03);
 }
+.ppz-page-home nav.collapse {
+  width: 0;
+}
+
+.ppz-page-home nav.collapse .left_top {
+  padding-left: 0;
+}
+.ppz-page-home nav.collapse h1 {
+  display: none;
+}
 
 .ppz-page-home nav .left_top {
+  position: relative;
   height: 3rem;
-  padding: 0 .5em 0 1em;
+  padding-left: 1.5em;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   border-bottom: 1px solid rgba(var(--color-fore-base), .06);
 }
 .ppz-page-home nav h1 {
@@ -22,16 +28,25 @@
   font-weight: bold;
   margin: 0;
   padding: 0;
+  white-space: nowrap;
 }
 
 .ppz-page-home nav .collapse_nav {
+  position: absolute;
+  right: .5em;
   color: rgba(var(--color-fore-base), .6);
+  transform: translateX(160%);
+  transition: transform .3s;
+}
+.ppz-page-home nav:not(.collapse) .collapse_nav {
+  color: rgba(var(--color-fore-base), .3);
 }
 .ppz-page-home nav .collapse_nav:hover {
   color: rgba(var(--color-fore-base), 1);
 }
 .ppz-page-home nav .collapse_nav:has(:checked) {
   --width: 1px;
+  transform: translateX(0);
 }
 
 .ppz-page-home nav ul {
@@ -57,11 +72,4 @@
 .ppz-page-home nav li a:hover {
   color: rgba(var(--color-fore-base), 1);
   background-color: rgba(var(--color-fore-base), .06);
-}
-
-.ppz-page-home article {
-  flex: 1;
-  height: 100%;
-  overflow-y: auto;
-  padding: 2em;
 }
