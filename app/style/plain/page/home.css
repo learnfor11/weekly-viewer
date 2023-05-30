@@ -9,6 +9,21 @@
   background-color: rgba(var(--color-fore-base), .03);
 }
 
+.ppz-page-home nav .left_top {
+  height: 3rem;
+  padding: 0 .5em 0 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(var(--color-fore-base), .06);
+}
+.ppz-page-home nav h1 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
 .ppz-page-home nav .collapse_nav {
   color: rgba(var(--color-fore-base), .6);
 }
@@ -19,16 +34,14 @@
   --width: 1px;
 }
 
-.ppz-page-home .nav_wrapper {
-  height: 100%;
-  overflow-y: auto;
-}
-
 .ppz-page-home nav ul {
+  height: calc(100% - 3rem);
+  overflow-y: auto;
   padding: 0;
-  margin: .6em 0;
+  margin: 0;
   list-style: none;
 }
+
 .ppz-page-home nav li {
   margin: 0;
   padding: 0;

@@ -9,16 +9,17 @@ function Catalog({ max, num }) {
     className: 'collapse_nav'
   })
   return O.nav(
-    collapse_switch.el,
-    O.div({ className: 'nav_wrapper' },
+    O.div({ className: 'left_top' },
+      O.h1('科技爱好者周刊'),
+      collapse_switch.el,
+    ),
+    O.ul({ className: 'nav_wrapper' },
       Array.from({ length: max })
         .map(function(_, i) {
           const num = max - i
-          return O.ul({ key: num },
-            O.li(
-              O(Link)({ to: '/?num=' + num },
-                `第 ${num.toString().padStart(pad_size, '0')} 期`
-              )
+          return O.li({ key: num },
+            O(Link)({ to: '/?num=' + num },
+              `第 ${num.toString().padStart(pad_size, '0')} 期`
             )
           )
         })

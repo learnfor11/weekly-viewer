@@ -21,8 +21,8 @@ html, body {
 ::-webkit-scrollbar {
   width: var(--scroll-bar-width);
 }
-::-webkit-scrollbar-track {
-  /* 轨道 */
+:hover::-webkit-scrollbar-track {
+  background: rgba(var(--color-fore-base), .0188);
 }
 ::-webkit-scrollbar-thumb {
   background: rgba(var(--color-fore-base), .2);
