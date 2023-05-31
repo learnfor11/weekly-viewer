@@ -1,5 +1,6 @@
-import { O } from '@ppzp/utils.rc'
+import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './app/index.js'
 
-ReactDOM.createRoot(document.getElementById('app-root')).render(O(App)())
+ReactDOM.createRoot(document.getElementById('react_app_root'))
+.render(React.createElement(App))

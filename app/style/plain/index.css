@@ -1,9 +1,13 @@
 @import url('./variables.css');
 @import url('./animate.css');
+@import url('./layout.css');
+
 @import url('./cmp/loading.css');
 @import url('./cmp/collapse_switch.css');
 
-@import url('./page/home/index.css');
+@import url('./section/nav.css');
+@import url('./section/article.css');
+@import url('./section/aside.css');
 
 * {
   box-sizing: border-box;

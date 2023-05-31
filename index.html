@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="./app/style/plain/index.css">
   </head>
   <body>
-    <div id="app-root"></div>
+    <div id="react_app_root"></div>
 
     <!--
       你所用到的 esm 轮子都在这里“声明”一下
@@ -17,10 +17,10 @@
     <script type="importmap">
       {
         "imports": {
-          "react": "https://unpkg.com/@xueershixi/react@18.2.0/react.development.js",
-          "react-dom": "https://unpkg.com/@xueershixi/react@18.2.0/react-dom.development.js",
+          "react": "../react/react.development.js",
+          "react-dom": "../react/react-dom.development.js",
           "marked": "https://cdn.jsdelivr.net/npm/marked@5.0.2/lib/marked.esm.js",
-          "router-mini/": "https://unpkg.com/router-mini@0.1.1/",
+          "state_mini": "../store.js/index.js",
           "@ppzp/utils.rc": "https://unpkg.com/@ppzp/utils.rc@0.1.1",
           "@ppzp/utils.rc/": "https://unpkg.com/@ppzp/utils.rc@0.1.1/"
         }

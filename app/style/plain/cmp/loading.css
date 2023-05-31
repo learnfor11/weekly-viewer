@@ -1,4 +1,4 @@
-.ppz-cmp-loading {
+.ppz_cmp_loading {
   width: 100%;
   height: 100%;
   display: flex;
@@ -6,12 +6,12 @@
   justify-content: center;
 }
 
-.ppz-cmp-loading .content {
+.ppz_cmp_loading .content {
   display: flex;
   align-items: center;
 }
 
-.ppz-cmp-loading .spin-target {
+.ppz_cmp_loading .spin-target {
   width: 1rem;
   height: 1rem;
   background: currentColor;
@@ -19,6 +19,6 @@
   margin-right: 1rem;
   animation: spin .5s linear infinite;
 }
-.ppz-cmp-loading .title {
+.ppz_cmp_loading .title {
   opacity: .6;
 }

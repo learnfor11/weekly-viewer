@@ -2,12 +2,13 @@ import { O } from '@ppzp/utils.rc'
 import useAsyncGet from '@ppzp/utils.rc/use_async_get.js'
 import { marked } from 'marked'
 
-import Loading from '../../cmp/loading/index.js'
-import { get_by_num } from '../../api/raw.js'
+import Loading from '../cmp/loading.js'
+import { get_by_num } from '../api/raw.js'
 
-export default function Viewer({ num }) {
+export default
+function Viewer({ num }) {
   console.debug('render Viewer')
-
+  
   const raw_res = useAsyncGet({
     getter: () => get_by_num(num),
     watch: [num]
