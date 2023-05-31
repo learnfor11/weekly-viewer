@@ -2,7 +2,7 @@ import create_external_state from 'state_mini'
 import { get_latest_num } from '../api/raw.js'
 
 const useLatestNum = create_external_state() // undefined: 未加载；null: 加载中；number: 加载成功
-export
+export default
 function useLatestNumState() {
   return useLatestNum().state
 }
