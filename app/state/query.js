@@ -50,12 +50,13 @@ function useState_query_value() {
 }
 
 export
-function Link({ to, className, children }) {
+function Link({ to, className, disabled, children }) {
   const current_query = useState_query_value()
   const target_query = Object.assign({}, current_query, to)
   return O.a(
     {
       className,
+      disabled,
       href: get_href(target_query),
       onClick(evt) {
         update_query(target_query)

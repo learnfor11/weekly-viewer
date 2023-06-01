@@ -8,32 +8,11 @@ nav.collapse {
   width: 0;
 }
 
-nav.collapse .left_top {
-  padding-left: 0;
-}
-nav.collapse label {
-  display: none;
-}
-
-nav .left_top {
-  position: relative;
-  height: var(--header_height);
-  padding-left: 1.5em;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid rgba(var(--color-fore-base), .06);
-}
-nav label {
-  font-size: 1rem;
-  font-weight: bold;
-  margin: 0;
-  padding: 0;
-  white-space: nowrap;
-}
-
 nav .collapse_nav {
   position: absolute;
   right: .5em;
+  top: .5em;
+  z-index: 10;
   color: rgba(var(--color-fore-base), .6);
   transform: translateX(160%);
   transition: transform .3s;
@@ -50,7 +29,7 @@ nav .collapse_nav:has(:checked) {
 }
 
 nav ul {
-  height: calc(100% - 3rem);
+  height: 100%;
   overflow-y: auto;
   padding: 0;
   margin: 0;
@@ -69,7 +48,11 @@ nav li a {
   color: rgba(var(--color-fore-base), .58);
   transition: all .08s;
 }
-nav li a:hover {
+nav li a:hover:not([disabled]) {
   color: rgba(var(--color-fore-base), 1);
   background-color: rgba(var(--color-fore-base), .06);
+}
+nav li a[disabled] {
+  color: rgba(var(--color-fore-base), 1);
+  cursor: default;
 }

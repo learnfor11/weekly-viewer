@@ -1,7 +1,7 @@
 header {
   position: sticky;
   top: 0;
-  height: var(--header_height);
+  height: 3rem;
   background-color: var(--color-back);
   border-bottom: 1px solid rgba(var(--color-fore-base), .028);
 }
