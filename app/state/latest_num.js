@@ -3,8 +3,8 @@ import { get_latest_num } from '../api/raw.js'
 
 const useLatestNum = create_external_state() // undefined: 未加载；null: 加载中；number: 加载成功
 export default
-function useLatestNumState() {
-  return useLatestNum().state
+function useLatestNumValue() {
+  return useLatestNum().value
 }
 export
 async function update_latest_num() {

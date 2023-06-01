@@ -43,7 +43,7 @@ export default
 function useState_query() {
   const state_query = useState_query_()
   return {
-    state: state_query.state,
+    value: state_query.value,
     set(make_new_value) {
       state_query.set(old_value => {
         const new_value = make_new_value(old_value)
