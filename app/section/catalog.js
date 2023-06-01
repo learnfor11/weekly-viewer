@@ -9,7 +9,7 @@ function Catalog({ latest_num, num }) {
   })
   return O.nav({ className: cns({ collapse: collapse_switch.collapse }) },
     O.div({ className: 'left_top' },
-      O.h1('科技爱好者周刊'),
+      O.label('科技爱好者周刊'),
       collapse_switch.el,
     ),
     O.ul({ className: 'nav_wrapper' },

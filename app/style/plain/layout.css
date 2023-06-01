@@ -2,3 +2,9 @@
   height: 100vh;
   display: flex;
 }
+
+#react_app_root > .main {
+  height: 100%;
+  flex: 1;
+  overflow-y: auto;
+}

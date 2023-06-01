@@ -11,19 +11,19 @@ nav.collapse {
 nav.collapse .left_top {
   padding-left: 0;
 }
-nav.collapse h1 {
+nav.collapse label {
   display: none;
 }
 
 nav .left_top {
   position: relative;
-  height: 3rem;
+  height: var(--header_height);
   padding-left: 1.5em;
   display: flex;
   align-items: center;
   border-bottom: 1px solid rgba(var(--color-fore-base), .06);
 }
-nav h1 {
+nav label {
   font-size: 1rem;
   font-weight: bold;
   margin: 0;
