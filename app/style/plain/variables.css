@@ -8,5 +8,5 @@
   --color-back: rgba(var(--color-back-base), 1);
 
   --scroll-bar-width: 6px;
-  --header_height: 3rem;
+  --header_height: 4rem;
 }
