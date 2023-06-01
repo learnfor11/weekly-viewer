@@ -1,5 +1,6 @@
 import { O, cns } from '@ppzp/utils.rc'
 import { useCollapseSwitch } from '../cmp/collapse_switch.js'
+import { increment_state_query } from '../state/query.js'
 
 export default
 function Catalog({ latest_num, num }) {
@@ -17,7 +18,12 @@ function Catalog({ latest_num, num }) {
         .map(function(_, i) {
           const num = latest_num - i
           return O.li({ key: num },
-            O.a({ to: '/?num=' + num },
+            O.a(
+              {
+                onClick() {
+                  increment_state_query({ num })
+                }
+              },
               `第 ${num.toString().padStart(pad_size, '0')} 期`
             )
           )

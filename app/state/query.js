@@ -1,6 +1,6 @@
 import create_external_state from 'state_mini'
 
-const useState_query_ = create_external_state(function get_init() {
+const useState_query = create_external_state(function get_init() {
   // 原始 query
   const query = new URLSearchParams(location.search)
   // 是否需要格式化 query
@@ -39,17 +39,16 @@ function update_query(query) {
   history.replaceState(null, null, result.slice(0, -1))
 }
 
-export default
-function useState_query() {
-  const state_query = useState_query_()
-  return {
-    value: state_query.value,
-    set(make_new_value) {
-      state_query.set(old_value => {
-        const new_value = make_new_value(old_value)
-        update_query(new_value)
-        return new_value
-      })
-    }
-  }
+export
+function useState_query_value() {
+  return useState_query().value
+}
+
+export
+function increment_state_query(increment) {
+  useState_query.set(old_value => {
+    const new_value = Object.assign({}, old_value, increment)
+    update_query(new_value)
+    return new_value
+  })
 }
