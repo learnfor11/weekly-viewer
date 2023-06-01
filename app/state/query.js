@@ -1,3 +1,4 @@
+import { O } from '@ppzp/utils.rc'
 import create_external_state from 'state_mini'
 
 const useState_query = create_external_state(function get_init() {
@@ -31,12 +32,16 @@ const useState_query = create_external_state(function get_init() {
   return formatted_query
 }())
 
-function update_query(query) {
+function get_href(query) {
   let result = '?'
   for(let key in query)
     if(query[key])
       result += `${key}=${query[key]}&`
-  history.replaceState(null, null, result.slice(0, -1))
+  return result
+}
+
+function update_query(query) {
+  history.replaceState(null, null, get_href(query).slice(0, -1))
 }
 
 export
@@ -45,10 +50,19 @@ function useState_query_value() {
 }
 
 export
-function increment_state_query(increment) {
-  useState_query.set(old_value => {
-    const new_value = Object.assign({}, old_value, increment)
-    update_query(new_value)
-    return new_value
-  })
+function Link({ to, className, children }) {
+  const current_query = useState_query_value()
+  const target_query = Object.assign({}, current_query, to)
+  return O.a(
+    {
+      className,
+      href: get_href(target_query),
+      onClick(evt) {
+        update_query(target_query)
+        useState_query.set2(target_query)
+        evt.preventDefault()
+      }
+    },
+    children
+  )
 }
