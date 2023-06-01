@@ -25,7 +25,7 @@ export default function App() {
     set_viewer(raw_res.match({
       before_loaded() {
         console.debug('render Viewer before_loaded')
-        return O.article(
+        return O.article({ className: 'loading' },
           O(Loading)('加载文章...')
         )
       },
