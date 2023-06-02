@@ -18,8 +18,14 @@ export default function App() {
   const [viewer, set_viewer] = useState()
   const raw_res = useAsyncGet({
     getter: () => get_by_num(num),
-    watch: [num]
+    load_on_mount: false
   })
+  useEffect2([num], function start_load() {
+    // 当 num 发生变化时，reload
+    if(num) // 在 query 里没有 num，latest_num 还没加载完，此时不要 reload
+      raw_res.reload()
+  })
+
   useEffect2([raw_res.status], function render_viewer() {
     console.debug('render Viewer')
     set_viewer(raw_res.match({

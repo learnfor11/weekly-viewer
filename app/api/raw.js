@@ -12,5 +12,6 @@ function get_latest_num() { // 最后一期的期号，保证“只要 return，
 
 export
 function get_by_num(num) {
+  console.debug('getting by num', num)
   return get(`https://raw.githubusercontent.com/ruanyf/weekly/master/docs/issue-${num}.md`)
 }
