@@ -4,3 +4,24 @@ article {
 article.loading {
   height: calc(100% - var(--header_height));
 }
+
+article p {
+  line-height: 1.8;
+  margin: 1em 0;
+}
+article p > img {
+  display: block;
+  margin: 2em 0;
+}
+
+article blockquote {
+  margin: 1em;
+}
+article blockquote ol,
+article blockquote ul {
+  padding-left: 1em;
+  margin: 1em 0;
+}
+article blockquote li {
+  line-height: 1.8;
+}

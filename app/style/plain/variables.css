@@ -1,5 +1,5 @@
 :root {
-  --color-primary: rgb(0, 0, 238);
+  --color-link: rgb(0, 0, 238);
   --color-fore-base: 0, 0, 0;
   /* --color-fore-base: 255, 255, 255; */
   --color-fore: rgba(var(--color-fore-base), 1);

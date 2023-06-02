@@ -45,6 +45,7 @@ nav li a {
   line-height: 1;
   padding: 1em 1.5em;
   text-decoration: none;
+  white-space: nowrap;
   color: rgba(var(--color-fore-base), .58);
   transition: all .08s;
 }
