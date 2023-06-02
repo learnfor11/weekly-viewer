@@ -9,11 +9,13 @@ import { get_by_num } from './api/raw.js'
 import Loading from './cmp/loading.js'
 import Header from './section/header.js'
 import Catalog from './section/catalog.js'
+import Anchors from './section/anchors.js'
 
 export default function App() {
   const latest_num = useLatestNumValue()
   const num = useState_query_value().num || latest_num
   const [h1, set_h1] = useState()
+  const [tokens, set_tokens] = useState()
 
   const [viewer, set_viewer] = useState()
   const raw_res = useAsyncGet({
@@ -42,6 +44,7 @@ export default function App() {
       loaded(data) {
         console.debug('render Viewer loaded')
         const tokens = marked.lexer(data)
+        set_tokens(tokens)
         if(tokens[0].type === 'heading' && tokens[0].depth === 1) {
           set_h1(tokens[0].text)
           tokens.shift()
@@ -58,7 +61,8 @@ export default function App() {
       O(Catalog)({ latest_num, num }),
       O.div({ className: 'main' },
         O(Header)({ h1 }),
-        viewer
+        viewer,
+        O(Anchors)({ _raw_tokens: tokens })
       )
     )
     : O(Loading)('加载最新期号...')

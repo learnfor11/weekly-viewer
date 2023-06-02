@@ -8,3 +8,13 @@
   flex: 1;
   overflow-y: auto;
 }
+
+article {
+  display: inline-block;
+  width: calc(100% - var(--menu_width));
+}
+menu {
+  vertical-align: top;
+  display: inline-block;
+  width: var(--menu_width);
+}
