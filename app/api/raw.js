@@ -4,7 +4,7 @@ export
 function get_latest_num() { // 最后一期的期号，保证“只要 return，得到的就一定是正确格式的 num”（在此处处理异常）
   return new Promise(res =>
     setTimeout(
-      () => res(257),
+      () => res(258),
       666
     )
   )

@@ -1,4 +1,21 @@
 menu {
   position: sticky;
-  top: var(--header_height);
+  top: calc(var(--header_height) + 10vh);
+  margin: 0;
+  padding-left: 1rem;
+  line-height: 1.6;
+}
+menu li {
+  list-style: none;
+  color: rgba(var(--color-fore-base), .6);
+}
+menu li:hover {
+  color: rgba(var(--color-fore-base), 1);
+}
+menu li::before {
+  content: '#';
+  margin-right: .6rem;
+}
+menu a {
+  color: inherit;
 }

@@ -9,7 +9,7 @@ import { get_by_num } from './api/raw.js'
 import Loading from './cmp/loading.js'
 import Header from './section/header.js'
 import Catalog from './section/catalog.js'
-import Anchors from './section/anchors.js'
+import Menu from './section/menu.js'
 
 export default function App() {
   const latest_num = useLatestNumValue()
@@ -62,7 +62,7 @@ export default function App() {
       O.div({ className: 'main' },
         O(Header)({ h1 }),
         viewer,
-        O(Anchors)({ _raw_tokens: tokens })
+        O(Menu)({ _raw_tokens: tokens })
       )
     )
     : O(Loading)('加载最新期号...')
