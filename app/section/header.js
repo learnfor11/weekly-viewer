@@ -9,7 +9,7 @@ function Header({ h1 }) {
       O.a({
         href: 'https://github.com/learnfor11/weekly_viewer',
         target: '_blank'
-      }, 'Github'),
+      }, '本站源码'),
       O.a({
         href: 'http://www.ruanyifeng.com/blog/',
         target: '_blank'

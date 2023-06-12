@@ -18,4 +18,9 @@ header h1 {
 }
 header .links a {
   margin-left: 1rem;
+  color: rgba(var(--color-fore-base), .38);
+  font-size: small;
+}
+header .links a:hover {
+  color: rgba(var(--color-fore-base), 1);
 }
