@@ -7,7 +7,7 @@
   /* --color-back-base: 0, 0, 0; */
   --color-back: rgba(var(--color-back-base), 1);
 
-  --scroll-bar-width: 6px;
+  --scroll-bar-width: 8px;
   --header_height: 4rem;
   --menu_width: 20rem;
 }
