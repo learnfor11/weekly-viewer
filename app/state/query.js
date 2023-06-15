@@ -2,14 +2,14 @@ import { O } from '@ppzp/utils.rc'
 import create_external_state from 'state_mini'
 
 const useState_query = create_external_state(function get_init() {
-  // 原始 query
-  const query = new URLSearchParams(location.search)
   // 是否需要格式化 query
   let rewrite_query = false
+  // 原始 query
+  const query = new URLSearchParams(location.search)
   
   // 当前期号
   let num = parseInt(query.get('num'))
-  if(!Number.isInteger(num)) {
+  if(!Number.isInteger(num) || num < 1) {
     num = null
     rewrite_query = true
   }

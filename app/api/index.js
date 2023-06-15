@@ -1,3 +1,16 @@
-export default function http_get(url) {
-  return fetch(url).then(res => res.text())
-}
+export default new Proxy(
+  url => fetch(url),
+  {
+    get: (http_get, type) => url =>
+      http_get(url)
+      .then(res => res[type]())
+  }
+)
+
+// coffeescript
+// export default new Proxy(
+//   (url) -> fetch url
+//   get: (http_get, type) -> (url) ->
+//     http_get url
+//     .then (res) -> res[type]()
+// )
