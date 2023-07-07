@@ -8,13 +8,22 @@ header {
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 header h1 {
   font-size: 1rem;
   line-height: 1;
   font-weight: bold;
   margin: 0;
+}
+header div.publish_date {
+  margin-left: 1rem;
+  opacity: .8;
+  padding-top: .2rem;
+  font-size: .8rem;
+}
+
+header .links {
+  margin-left: auto;
 }
 header .links a {
   margin-left: 1rem;
