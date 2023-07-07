@@ -1,24 +1,26 @@
-import { useMemo } from 'react'
-import { O } from '@ppzp/utils.rc'
+import { useMemo, createElement as R } from 'react'
+import { useValue_article_tokens } from '../state/article.js'
 
 export default
 function Menu({ _raw_tokens }) {
+  const tokens = useValue_article_tokens()
   const list = useMemo(function make_archors_list() {
-    return _raw_tokens
+    return tokens
       ?.filter(token => token.type === 'heading' && token.depth === 2)
       .map(token => token.text)
-  }, [_raw_tokens])
-  
-  return  O.menu(
-    list?.map(title => O.li(
-      { key: title },
-      
-      O.a(
-        {
-          href: '#' + title.replaceAll(' ', '-').toLowerCase()
-        },
-        title
+  }, [tokens])
+
+  if(tokens)
+    return R('menu', null,
+      list?.map(title =>
+        R('li', { key: title },
+          R('a',
+            {
+              href: '#' + title.replaceAll(' ', '-').toLowerCase()
+            },
+            title
+          )
+        )
       )
-    ))
   )
 }
