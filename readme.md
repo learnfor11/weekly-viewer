@@ -5,6 +5,9 @@
 这个项目，是周刊的一个阅读器  
 [看看现在做得怎么样了](https://learnfor11.github.io/weekly_viewer/)
 
++ [开发介绍](./dev.md)
++ [状态驱动的开发](./app/state/readme.md)
+
 ## TODO
 ##### 一期
 从源仓库捞数据、展示
