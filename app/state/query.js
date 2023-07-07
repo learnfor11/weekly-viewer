@@ -17,7 +17,7 @@ function useCurrent() {
   const list = useState_list().value
   let num = useState_num().value
   if(num !== undefined) {
-    const index = list.length - (num === null ? 1 : num)
+    const index = num === null ? 0 : list.length - num
     console.debug('using current', { num, index }, list[index])
     return list[index]
   }
