@@ -39,6 +39,7 @@ async function init_state() {
     async function load_article() {
       const num = get_current_num()
       console.debug('loading article, current num', num)
+      useState_article.set2(null) // 标记为“加载中”
       useState_article.set2(await get_by_num(num))
     }
   }
