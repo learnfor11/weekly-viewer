@@ -17,16 +17,18 @@ function useCurrent() {
   const list = useState_list().value
   let num = useState_num().value
   if(num !== undefined) {
-    num ||= list.slice(-1)[0].number
-    // console.debug('using current', list[num])
-    return list[num]
+    const index = list.length - (num === null ? 1 : num)
+    console.debug('using current', { num, index }, list[index])
+    return list[index]
   }
 }
 
 export
 function rewrite_query() {
+  const num = useState_num.get()
+  console.debug('rewriting query', { num })
   // history.replaceState 会更新地址栏，但页面不会重新加载
-  history.replaceState(null, '', get_href(useState_num.get()))
+  history.replaceState(null, '', get_href(num))
 }
 
 export

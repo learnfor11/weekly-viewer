@@ -1,10 +1,12 @@
 import { useMemo, createElement as R } from 'react'
 import { Link } from '../state/query.js'
 import { useState_list } from '../state/list.js'
+import { useCurrent } from '../state/query.js'
 
 export default
 function Catalog() {
   const list = useState_list().value
+  const current_article = useCurrent()
   const pad_size = useMemo(function parse_pad_size() {
     const latest = list.slice(-1)[0]
     return latest.number.toString().length
@@ -17,7 +19,7 @@ function Catalog() {
         return R('li', { key: item.number },
           R(Link,
             {
-              // disabled: num == current_num,
+              disabled: item.number == current_article?.number,
               to: item.number,
               title: `第 ${padded_num} 期 ${item.title || '（第 106 期之前没标题）' }`,
             },
