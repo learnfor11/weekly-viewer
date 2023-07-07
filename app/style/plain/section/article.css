@@ -16,6 +16,7 @@ article p > img {
   display: block;
   margin: 2em 0;
   max-width: 100%;
+  box-shadow: rgba(var(--color-fore-base), .08) 0px 7px 29px 0px;
 }
 
 article blockquote {

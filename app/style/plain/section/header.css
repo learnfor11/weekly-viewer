@@ -3,7 +3,7 @@ header {
   top: 0;
   height: var(--header_height);
   background-color: var(--color-back);
-  border-bottom: 1px solid rgba(var(--color-fore-base), .028);
+  box-shadow: rgba(var(--color-fore-base), .06) 0px 1px 4px;
   padding: 0 4rem;
 
   display: flex;
