@@ -1,69 +1,54 @@
-import { O } from '@ppzp/utils.rc'
+import { createElement as R } from 'react'
 import create_external_state from 'state_mini'
+import { get_latest_num, useState_list } from './list.js'
 
-const useState_query = create_external_state(function get_init() {
-  // 是否需要格式化 query
-  let rewrite_query = false
-  // 原始 query
-  const query = new URLSearchParams(location.search)
-  
-  // 当前期号
-  let num = parseInt(query.get('num'))
-  if(!Number.isInteger(num) || num < 1) {
-    num = null
-    rewrite_query = true
-  }
-  
-  // 是否折叠导航栏
-  let collapse_nav = {
-    yes: true,
-    no: false
-  }[query.get('collapse_nav')]
-  if(typeof collapse_nav != 'boolean') {
-    collapse_nav = false
-    rewrite_query = true
-  }
-  
-  // 格式化后的 query
-  const formatted_query = { num, collapse_nav }
-  
-  if(rewrite_query)
-    update_query(formatted_query)
-  return formatted_query
-}())
+export
+const useState_num = create_external_state()
 
-function get_href(query) {
-  let result = '?'
-  for(let key in query)
-    if(query[key])
-      result += `${key}=${query[key]}&`
-  return result
+export
+function get_current_num() {
+  return useState_num.get() || get_latest_num()
 }
+// export const get_current_num = () => useState_num.get() || get_latest_num()
+// export get_current_num = -> useState_num.get() || get_latest_num()
 
-function update_query(query) {
-  history.replaceState(null, null, get_href(query).slice(0, -1))
+export
+function useCurrent() {
+  const list = useState_list().value
+  let num = useState_num().value
+  if(num !== undefined) {
+    num ||= list.slice(-1)[0].number
+    // console.debug('using current', list[num])
+    return list[num]
+  }
 }
 
 export
-function useState_query_value() {
-  return useState_query().value
+function rewrite_query() {
+  // history.replaceState 会更新地址栏，但页面不会重新加载
+  history.replaceState(null, '', get_href(useState_num.get()))
 }
 
 export
-function Link({ to, className, disabled, children }) {
-  const current_query = useState_query_value()
-  const target_query = Object.assign({}, current_query, to)
-  return O.a(
+function Link({ to, children, ...props }) {
+  const href = get_href(to)
+  return R('a',
     {
-      className,
-      disabled,
-      href: get_href(target_query),
+      ...props,
+      href, // 保证 href 的原始功能（比如“右键、在新的标签页打开”）
       onClick(evt) {
-        update_query(target_query)
-        useState_query.set2(target_query)
-        evt.preventDefault()
+        useState_num.set2(to)
+        rewrite_query() // 更新地址栏
+        evt.preventDefault() // 阻止页面刷新
       }
     },
     children
   )
+}
+
+function get_href(to) {
+  let href = location.pathname
+  if(to)
+    href += '?num=' + to
+  return href
 }

@@ -1,19 +1,26 @@
-import { O } from '@ppzp/utils.rc'
+import { createElement as R } from 'react'
+import { useCurrent } from '../state/query.js'
 
 export default
-function Header({ h1 }) {
-  return O.header(
-    O.h1(h1),
-
-    O.div({ className: 'links' },
-      O.a({
-        href: 'https://github.com/learnfor11/weekly_viewer',
-        target: '_blank'
-      }, '本站源码'),
-      O.a({
-        href: 'http://www.ruanyifeng.com/blog/',
-        target: '_blank'
-      }, '阮一峰的网络日志')
+function Header() {
+  const current = useCurrent()
+  return R('header', null,
+    R('h1', null, `第 ${current.number} 期 ${current.title}`), // 报错要趁早：此处 current.title 应直接用，如果 current 不存在，此组件不应被实例化
+    R('div', { className: 'links' },
+      R('a',
+        {
+          href: 'https://github.com/learnfor11/weekly_viewer',
+          target: '_blank'
+        },
+        '本站源码'
+      ),
+      R('a',
+        {
+          href: 'http://www.ruanyifeng.com/blog/',
+          target: '_blank'
+        },
+        '阮一峰的网络日志'
+      )
     )
   )
 }

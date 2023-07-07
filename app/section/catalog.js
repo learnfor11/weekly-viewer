@@ -1,29 +1,31 @@
-import { O, cns } from '@ppzp/utils.rc'
-import { useCollapseSwitch } from '../cmp/collapse_switch.js'
+import { useMemo, createElement as R } from 'react'
 import { Link } from '../state/query.js'
+import { useState_list } from '../state/list.js'
 
 export default
-function Catalog({ latest_num, num: current_num }) {
-  const pad_size = latest_num.toString().length
-  const collapse_switch = useCollapseSwitch({
-    className: 'collapse_nav'
-  })
-  return O.nav({ className: cns({ collapse: collapse_switch.collapse }) },
-    collapse_switch.el,
-    O.ul({ className: 'nav_wrapper' },
-      Array.from({ length: latest_num })
-        .map(function(_, i) {
-          const num = latest_num - i
-          return O.li({ key: num },
-            O(Link)(
-              {
-                disabled: num == current_num,
-                to: { num }
-              },
-              `第 ${num.toString().padStart(pad_size, '0')} 期`  
-            )
+function Catalog() {
+  const list = useState_list().value
+  const pad_size = useMemo(function parse_pad_size() {
+    const latest = list.slice(-1)[0]
+    return latest.number.toString().length
+  }, [list])
+
+  return R('nav', null,
+    R('ul', { className: 'nav_wrapper' },
+      list.map(function render_menu_item(item) {
+        const padded_num = item.number.toString().padStart(pad_size, '0')
+        return R('li', { key: item.number },
+          R(Link,
+            {
+              // disabled: num == current_num,
+              to: item.number,
+              title: `第 ${padded_num} 期 ${item.title || '（第 106 期之前没标题）' }`,
+            },
+            R('span', { className: 'number' }, padded_num, '. '),
+            item.title || R('span', { className: 'no_name' }, '无标题')
           )
-        })
+        )
+      })
     )
   )
 }
