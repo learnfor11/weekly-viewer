@@ -1,31 +1,11 @@
 nav {
-  width: 288px;
+  width: var(--nav_width);
   transition: width .3s;
   position: relative;
   background-color: rgba(var(--color-fore-base), .03);
 }
 nav.collapse {
   width: 0;
-}
-
-nav .collapse_nav {
-  position: absolute;
-  right: .5em;
-  top: .5em;
-  z-index: 10;
-  color: rgba(var(--color-fore-base), .6);
-  transform: translateX(160%);
-  transition: transform .3s;
-}
-nav:not(.collapse) .collapse_nav {
-  color: rgba(var(--color-fore-base), .3);
-}
-nav .collapse_nav:hover {
-  color: rgba(var(--color-fore-base), 1);
-}
-nav .collapse_nav:has(:checked) {
-  --width: 1px;
-  transform: translateX(0);
 }
 
 nav ul {

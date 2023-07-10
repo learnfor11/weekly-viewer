@@ -1,0 +1,34 @@
+.nav_switch {
+  --size: 40px; /* 此处值，最好为 4 的倍数 */
+  position: fixed;
+  top: calc(50% - var(--size) / 2);
+  height: var(--size);
+  width: var(--size);
+  cursor: pointer;
+}
+
+.nav_expanded .nav_switch {
+  left: calc(var(--nav_width) - var(--size));
+  border-radius: 50%;
+  --arrow_size: calc(.4 * var(--size)); /* 40 * .4 = 16 */
+}
+
+.nav_expanded .nav_switch::before {
+  content: '';
+  display: block;
+
+  width: var(--arrow_size);
+  height: var(--arrow_size);
+  margin: calc((var(--size) - var(--arrow_size)) / 2);
+
+  border: 2px solid;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: rgba(var(--color-fore-base), .18);
+  border-top-color: rgba(var(--color-fore-base), .18);
+  transform: scaleY(1.2) rotate(-45deg) ;
+}
+.nav_expanded .nav_switch:hover::before {
+  border-left-color: rgba(var(--color-fore-base), .58);
+  border-top-color: rgba(var(--color-fore-base), .58);
+}
