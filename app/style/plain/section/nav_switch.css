@@ -1,16 +1,20 @@
 .nav_switch {
-  --size: 40px; /* 此处值，最好为 4 的倍数 */
-  position: fixed;
-  top: calc(50% - var(--size) / 2);
-  height: var(--size);
-  width: var(--size);
+  --size: 40px;
   cursor: pointer;
 }
 
 .nav_expanded .nav_switch {
+  --arrow_size: calc(.4 * var(--size)); /* 40 * .4 = 16 */
+  position: fixed;
+  top: calc(50% - var(--size) / 2);
+  height: var(--size);
+  width: var(--size);
   left: calc(var(--nav_width) - var(--size));
   border-radius: 50%;
-  --arrow_size: calc(.4 * var(--size)); /* 40 * .4 = 16 */
+  opacity: 0;
+}
+.nav_expanded nav:hover + .nav_switch, .nav_switch:hover {
+  opacity: 1;
 }
 
 .nav_expanded .nav_switch::before {
@@ -26,9 +30,25 @@
   border-bottom-color: transparent;
   border-left-color: rgba(var(--color-fore-base), .18);
   border-top-color: rgba(var(--color-fore-base), .18);
-  transform: scaleY(1.2) rotate(-45deg) ;
+  transform: scaleY(1.2) rotate(-45deg);
 }
 .nav_expanded .nav_switch:hover::before {
   border-left-color: rgba(var(--color-fore-base), .58);
   border-top-color: rgba(var(--color-fore-base), .58);
+}
+
+.nav_collapsed .nav_switch {
+  --arrow_size: calc(.3 * var(--size)); /* 40 * .3 = 12 */
+  width: 10px;
+  background: rgba(var(--color-fore-base), .08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav_collapsed .nav_switch::before {
+  content: '>';
+  transform: scaleY(3);
+}
+.nav_collapsed .nav_switch:not(:hover)::before {
+  color: rgba(var(--color-fore-base), .28);
 }
