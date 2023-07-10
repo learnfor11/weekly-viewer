@@ -4,7 +4,7 @@ nav {
   position: relative;
   background-color: rgba(var(--color-fore-base), .03);
 }
-nav.collapse {
+.nav_collapsed nav {
   width: 0;
 }
 

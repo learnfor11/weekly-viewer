@@ -16,7 +16,7 @@ export default function App() {
   const current = useCurrent()
   return R('div',
     {
-      className: 'viewer_root ' + (nav_collapsed ? 'nav_collaped':'nav_expanded')
+      className: 'viewer_root ' + (nav_collapsed ? 'nav_collapsed':'nav_expanded')
     },
     current? // 判断：list 是否已加载
     R(Fragment, null,
