@@ -1,17 +1,17 @@
 nav {
   width: var(--nav_width);
   transition: width .3s;
+  height: 100%;
+  overflow-y: auto;
   position: relative;
-  background-color: rgba(var(--color-fore-base), .03);
+  background-color: rgba(var(--color-fore-base), .028);
 }
 .nav_collapsed nav {
   width: 0;
 }
 
 nav ul {
-  height: 100%;
-  overflow-y: auto;
-  padding: .5em 0;
+  padding: 0;
   margin: 0;
   list-style: none;
 }
@@ -20,19 +20,37 @@ nav li {
   margin: 0;
   padding: 0;
 }
-nav li a {
-  display: block;
+
+nav li ul { /* 不同层级的背景色 */
+  background-color: rgba(var(--color-fore-base), .028);
+}
+
+nav li :is(a, .group_label) { /* 列表每一行 父项、子项 */
   line-height: 1;
   padding: 1em 1.5em;
-  text-decoration: none;
-  white-space: nowrap;
   color: rgba(var(--color-fore-base), .58);
   transition: all .08s;
+  border-bottom: 1px solid rgba(var(--color-fore-base), .028);
+}
+nav li :is(a:not([disabled]), .group_label):hover { /* 列表每一行 hover 时 */
+  color: rgba(var(--color-fore-base), 1);
+  background-color: rgba(var(--color-fore-base), .06);
+}
+
+nav li a { /* 列表每一行 子项 */
+  text-decoration: none;
+  display: block;
+  white-space: nowrap;
   max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-nav li a span.number {
+nav li a[disabled] { /* 列表每一行 子项 当前被选中时 */
+  color: rgba(var(--color-fore-base), 1);
+  cursor: default;
+}
+
+nav li :is(a, .group_label) span.number { /* 期号 */
   font-size: .6em;
   vertical-align: bottom;
 }
@@ -40,11 +58,8 @@ nav li a span.no_name {
   opacity: .58;
 }
 
-nav li a:hover:not([disabled]) {
-  color: rgba(var(--color-fore-base), 1);
-  background-color: rgba(var(--color-fore-base), .06);
-}
-nav li a[disabled] {
-  color: rgba(var(--color-fore-base), 1);
-  cursor: default;
+nav .group_label { /* 列表每一行 子项 */
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
 }
