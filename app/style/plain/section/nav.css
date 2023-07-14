@@ -1,6 +1,6 @@
 nav {
   width: var(--nav_width);
-  transition: width .3s;
+  transition: width .6s;
   height: 100%;
   overflow-y: auto;
   position: relative;
@@ -8,6 +8,9 @@ nav {
 }
 .nav_collapsed nav {
   width: 0;
+}
+nav > ul {
+  width: var(--nav_width); /* 保持 nav 内部形状（在动画时）*/
 }
 
 nav ul {
