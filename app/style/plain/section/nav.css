@@ -3,6 +3,7 @@ nav {
   transition: width .6s;
   height: 100%;
   overflow-y: auto;
+  overflow-x: hidden;
   position: relative;
   background-color: rgba(var(--color-fore-base), .028);
 }
