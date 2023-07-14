@@ -1,5 +1,4 @@
-import { createElement as R, Fragment, useState } from 'react'
-import { useMount } from '@ppzp/utils.rc'
+import { createElement as R, Fragment, useState, useEffect } from 'react'
 
 import Loading from './cmp/loading.js'
 import Catalog from './section/catalog.js'
@@ -30,4 +29,10 @@ export default function App() {
     )
     : R(Loading, null, '加载期刊列表...')
   )
+}
+
+function useMount(cb) {
+  useEffect(function on_mount() {
+    cb()
+  }, [])
 }

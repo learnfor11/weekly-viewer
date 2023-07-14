@@ -16,5 +16,5 @@ function Article() {
         __html: marked.parser(tokens)
       }
     })
-    : R(Loading, null, `加载第 ${current.number} 期 ${current.title}...`)
+    : R(Loading, null, `加载第 ${current.number} 期 ${current.title || ''}...`)
 }

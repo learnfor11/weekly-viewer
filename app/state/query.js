@@ -18,7 +18,6 @@ function useCurrent() {
   let num = useState_num().value
   if(num !== undefined) {
     const index = num === null ? 0 : list.length - num
-    console.debug('using current', { num, index }, list[index])
     return list[index]
   }
 }
